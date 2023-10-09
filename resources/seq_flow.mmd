@@ -1,0 +1,17 @@
+
+    sequenceDiagram
+        participant M as Main
+        participant G as Game
+        participant S as Snake
+        participant A as Apple
+        M->>G: start_game()
+        loop game loop
+            G->>S: move()
+            alt snake eats apple
+                G->>A: respawn()
+                G->>S: grow()
+                G->>G: increase score
+            end
+        end
+        G->>M: end_game()
+    
